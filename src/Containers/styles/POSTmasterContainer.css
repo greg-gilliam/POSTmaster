@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+}
+
+.header {
+  grid-area: header;
+}
+
+.history {
+  grid-area: history;
+}
+
+.form {
+  grid-area: form;
+}
+
+.results {
+  grid-area: results;
+}
