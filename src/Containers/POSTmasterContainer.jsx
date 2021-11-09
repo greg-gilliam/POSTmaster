@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import style from './styles/POSTmasterContainer.css';
-import { Form, History, Display, Header } from '../components';
-import { fetchRequest } from '../services/fetchUtils';
+import Form from '../components/Form';
+import History from '../components/History';
+import Display from '../components/Display';
+import Header from '../components/Header';
+import { fetchReq } from '../services/fetchUtils';
 
 class POSTmasterContainer extends Component {
   state = {
@@ -29,7 +32,7 @@ class POSTmasterContainer extends Component {
       method,
       history: [...history, { url: urlInput, method: method }],
     });
-    const response = await fetchRequest(method, urlInput, jsonInput);
+    const response = await fetchReq(method, urlInput, jsonInput);
     this.setState({ response, loading: false });
   };
   render() {
