@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-function History() {
+function History({ history }) {
   return (
     <section name="history-container">
       {history.map((item) => {

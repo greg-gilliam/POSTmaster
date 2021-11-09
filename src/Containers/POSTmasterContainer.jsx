@@ -12,7 +12,7 @@ class POSTmasterContainer extends Component {
     urlInput: '',
     method: '',
     history: [],
-    response: '',
+    response: [],
     jsonInput: '',
   };
 
