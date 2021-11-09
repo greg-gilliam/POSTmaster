@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
+import MethodOnInput from './MethodOnInput';
 
-function Form() {
+function Form({ onSubmit, onInput, urlInput, jsonInput }) {
+  const methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'];
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <label htmlFor="urlInput">Put your URL here:</label>
-      <input id="urlInput" name="urlInput" placeholder="URL"></input>
-      <label htmlFor="GET">GET</label>
-      <input id="GET" type="radio" name="selector"></input>
-      <label htmlFor="POST">POST</label>
-      <input id="POST" type="radio" name="selector"></input>
-      <label htmlFor="PUT">PUT</label>
-      <input id="PUT" type="radio" name="selector"></input>
-      <label htmlFor="PATCH">PATCH</label>
-      <input id="PATCH" type="radio" name="selector"></input>
-      <label htmlFor="DELETE">DELETE</label>
-      <input id="DELETE" type="radio" name="selector"></input>
+      <input
+        id="urlInput"
+        name="urlInput"
+        value={urlInput}
+        onChange={onInput}
+        placeholder="URL"
+        aria-label="urlInput"
+      ></input>
+
+      {methods.map((method) => (
+        <MethodOnInput method={method} key={method} onInput={onInput} />
+      ))}
 
       <button aria-label="submitButton">Submit</button>
 
-      <textarea placeholder="Raw JSON Content"></textarea>
+      <textarea
+        name="jsonInput"
+        value={jsonInput}
+        placeholder="Raw JSON Content"
+        onChange={onInput}
+      ></textarea>
     </form>
   );
 }

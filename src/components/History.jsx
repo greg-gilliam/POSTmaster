@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 function History() {
   return (
     <section name="history-container">
-      <p>Item 1</p>
-      <p>Item 2</p>
+      {history.map((item) => {
+        <div>
+          <h3>{item.method}</h3>
+          <p>{item.url}</p>
+        </div>;
+      })}
     </section>
   );
 }
